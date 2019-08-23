@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+. ./smoke.bash
+
+echo arg count is $#
+if (($# >= 1)); then
+    stresstime=$1
+else
+    stresstime=60s
+fi
+
+echo Starting stress test at `date` for $stresstime:
+stress $stresstime
+echo Ending stress test at `date`
